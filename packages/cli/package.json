@@ -4,18 +4,22 @@
   "description": "业务组件库 CLI 工具",
   "type": "module",
   "bin": {
-    "sc-components": "./dist/index.js"
+    "sc-biz-components": "./dist/index.js"
   },
-  "files": [
-    "dist",
-    "templates",
-    "registry.json"
-  ],
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "cli": "node ./dist/index.mjs"
+    "link": "npm link",
+    "unlink": "npm unlink -g @sc-biz-components/cli"
   },
+  "keywords": [
+    "cli",
+    "components",
+    "template",
+    "business-components"
+  ],
+  "author": "",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.2",
     "cli-table3": "^0.6.5",
@@ -29,6 +33,10 @@
     "@types/fs-extra": "^11.0.4",
     "@types/prompts": "^2.4.9",
     "tsup": "^8.0.1",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   }
 }

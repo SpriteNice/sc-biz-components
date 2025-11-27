@@ -6,7 +6,7 @@ import { list } from './commands/list';
 
 const program = new Command();
 
-program.name('sc-components').description('业务组件库 CLI 工具').version('1.0.0');
+program.name('sc-biz-components').description('SC业务组件模板库 CLI 工具').version('1.0.0');
 
 program.command('init').description('初始化项目配置').action(init);
 

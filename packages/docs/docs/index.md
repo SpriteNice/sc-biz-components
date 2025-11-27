@@ -18,7 +18,7 @@ hero:
 
 features:
   - title: 📦 源码级管理
-    details: 通过 CLI 工具将组件源码直接添加到项目中，代码完全可控，随时修改，告别黑盒依赖
+    details: 通过 CLI 工具将组件源码直接添加到项目中，代码完全可控，随时修改，告别黑盒依赖。
   - title: 🚀 开箱即用
     details: 针对企业常见业务场景深度封装，内置最佳实践，显著提升开发效率
   - title: 🎨 Ant Design 生态

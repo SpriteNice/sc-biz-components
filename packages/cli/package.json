@@ -1,6 +1,6 @@
 {
   "name": "create-sc-biz-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "业务组件库 CLI 工具",
   "type": "module",
   "bin": {

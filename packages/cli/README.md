@@ -1,13 +1,13 @@
-# @sc-biz/cli
+# SC Biz CLI
 
 业务组件库 CLI 工具，快速添加常用业务组件到项目中。
 
 ## 安装
 
 ```bash
-npm install -g @sc-biz/cli
+npm install -g create-sc-biz-components
 # 或
-pnpm add -g @sc-biz/cli
+pnpm add -g create-sc-biz-components
 ```
 
 ## 使用

@@ -1,5 +1,5 @@
 {
-  "name": "@sc-biz-components/docs",
+  "name": "sc-biz-docs",
   "version": "1.0.0",
   "private": true,
   "description": "SC 业务组件库文档站点",

@@ -152,8 +152,6 @@ sc-biz add use-counter
 
 ```tsx
 import React from 'react';
-import CustomCalendar from '@components/custom-calendar';
-import CustomCard from '@components/custom-card';
 import { useCounter } from '@hooks/useCounter';
 
 function App() {
@@ -163,9 +161,6 @@ function App() {
     <div className="app">
       <h1>sc-biz-components 示例</h1>
 
-      {/* 使用自定义卡片 */}
-      <CustomCard title="欢迎使用" content="这是一个源码级业务组件示例" />
-
       {/* 使用计数器 Hook */}
       <div>
         <p>计数：{count}</p>
@@ -173,9 +168,6 @@ function App() {
         <button onClick={decrement}>减少</button>
         <button onClick={reset}>重置</button>
       </div>
-
-      {/* 使用自定义日历 */}
-      <CustomCalendar />
     </div>
   );
 }

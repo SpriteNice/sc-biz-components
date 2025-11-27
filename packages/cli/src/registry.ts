@@ -1,13 +1,4 @@
-export interface ComponentInfo {
-  /** 组件唯一标识 */
-  name: string;
-  /** 显示名称 */
-  title: string;
-  /** 简短描述 */
-  description: string;
-  /** 组件类型 */
-  type: 'component' | 'hook';
-}
+import { ComponentInfo } from './constants';
 
 /**
  * 组件注册表
@@ -24,5 +15,5 @@ export const REGISTRY: Record<string, ComponentInfo> = {
     title: 'useCounter',
     description: '一个简单的计数器 Hook',
     type: 'hook',
-  }
+  },
 };

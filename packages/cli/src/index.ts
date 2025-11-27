@@ -3,10 +3,11 @@ import { Command } from 'commander';
 import { init } from './commands/init';
 import { add } from './commands/add';
 import { list } from './commands/list';
+import { COMMAND_NAME } from './constants';
 
 const program = new Command();
 
-program.name('sc-biz-components').description('SC业务组件模板库 CLI 工具').version('1.0.0');
+program.name(COMMAND_NAME).description('SC业务组件模板库 CLI 工具').version('1.0.0');
 
 program.command('init').description('初始化项目配置').action(init);
 

@@ -2,8 +2,7 @@ import prompts from 'prompts';
 import fs from 'fs-extra';
 import path from 'node:path';
 import chalk from 'chalk';
-
-const CONFIG_FILE_NAME = 'sc-biz-components.json';
+import { CONFIG_FILE_NAME, DEFAULT_COMPONENTS_PATH } from '../constants';
 
 export async function init() {
   console.log(chalk.blue.bold('\n🚀 初始化组件库配置\n'));
@@ -31,7 +30,7 @@ export async function init() {
       type: 'text',
       name: 'componentsPath',
       message: '组件安装路径:',
-      initial: 'src/sc-biz-components',
+      initial: DEFAULT_COMPONENTS_PATH,
       validate: (value) => {
         if (!value.trim()) {
           return '路径不能为空';

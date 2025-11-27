@@ -3,7 +3,8 @@ import ora from 'ora';
 import chalk from 'chalk';
 import path from 'node:path';
 import fs from 'fs-extra';
-import { REGISTRY, ComponentInfo } from '../registry';
+import { REGISTRY } from '../registry';
+import { COMMAND_NAME, ComponentInfo, CONFIG_FILE_NAME } from '../constants';
 
 interface Config {
   componentsPath: string;
@@ -11,9 +12,9 @@ interface Config {
 
 export async function add(components?: string[]) {
   // 读取配置
-  const configPath = path.join(process.cwd(), 'sc-biz-components.json');
+  const configPath = path.join(process.cwd(), CONFIG_FILE_NAME);
   if (!(await fs.pathExists(configPath))) {
-    console.error(chalk.red('❌ 未找到 sc-biz-components.json，请先运行: sc-biz-components init'));
+    console.error(chalk.red(`❌ 未找到 ${CONFIG_FILE_NAME}，请先运行:  ${COMMAND_NAME} init`));
     process.exit(1);
   }
 

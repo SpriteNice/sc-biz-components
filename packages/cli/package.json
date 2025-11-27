@@ -1,16 +1,14 @@
 {
-  "name": "@sc-biz-components/cli",
+  "name": "@sc-biz/cli",
   "version": "1.0.0",
   "description": "业务组件库 CLI 工具",
   "type": "module",
   "bin": {
-    "sc-biz-components": "./dist/index.js"
+    "sc-biz": "./dist/index.js"
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup",
-    "link": "npm link",
-    "unlink": "npm unlink -g @sc-biz-components/cli"
+    "build": "tsup"
   },
   "keywords": [
     "cli",

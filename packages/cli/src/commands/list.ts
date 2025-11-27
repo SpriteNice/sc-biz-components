@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import Table from 'cli-table3';
-import { REGISTRY, ComponentInfo } from '../registry';
+import { REGISTRY } from '../registry';
+import { ComponentInfo } from '../constants';
 
 export async function list() {
   console.log(chalk.blue.bold('\n📦 可用组件列表\n'));

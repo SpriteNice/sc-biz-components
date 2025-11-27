@@ -6,6 +6,7 @@
 
 ```tsx
 import { useCounter } from '@hooks/useCounter';
+import { Button } from 'antd';
 
 export default function Demo() {
   const { count, increment, decrement, reset } = useCounter(0);
@@ -15,9 +16,9 @@ export default function Demo() {
       <h3>计数器示例</h3>
       <p style={{ fontSize: '24px', fontWeight: 'bold' }}>当前计数: {count}</p>
       <div style={{ display: 'flex', gap: '10px' }}>
-        <button onClick={increment}>增加</button>
-        <button onClick={decrement}>减少</button>
-        <button onClick={reset}>重置</button>
+        <Button onClick={increment} type="primary">增加</Button>
+        <Button onClick={decrement} type="primary">减少</Button>
+        <Button onClick={reset}>重置</Button>
       </div>
     </div>
   );
@@ -28,6 +29,7 @@ export default function Demo() {
 
 ```tsx
 import { useCounter } from '@hooks/useCounter';
+import { Button } from 'antd';
 
 export default function Demo() {
   const { count, increment, decrement, reset } = useCounter(10);
@@ -37,9 +39,9 @@ export default function Demo() {
       <h3>从 10 开始计数</h3>
       <p style={{ fontSize: '24px', fontWeight: 'bold' }}>当前计数: {count}</p>
       <div style={{ display: 'flex', gap: '10px' }}>
-        <button onClick={increment}>+1</button>
-        <button onClick={decrement}>-1</button>
-        <button onClick={reset}>重置到 10</button>
+        <Button onClick={increment} type="primary">+1</Button>
+        <Button onClick={decrement} type="primary">-1</Button>
+        <Button onClick={reset}>重置到 10</Button>
       </div>
     </div>
   );

@@ -38,6 +38,13 @@ export default defineConfig({
         },
       ],
     },
+    socialLinks: [
+      { 
+        icon: 'github', 
+        mode: 'link', 
+        content: 'https://github.com/SpriteNice/sc-biz-components' 
+      },
+    ],
   },
   plugins: [pluginPreview()],
   builderConfig: {

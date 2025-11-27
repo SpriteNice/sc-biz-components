@@ -1,0 +1,222 @@
+# 快速开始
+
+本指南将帮助你快速上手 sc-biz-components，5 分钟内完成从安装到使用的全过程。
+
+## 前置条件
+
+确保你已经有一个 React + Ant Design 项目。如果还没有，可以快速创建一个：
+
+```bash
+# 使用 Vite 创建 React 项目
+pnpm create vite my-app --template react-ts
+cd my-app
+pnpm install
+
+# 安装 Ant Design
+pnpm add antd
+```
+
+## 步骤 1：安装 CLI 工具
+
+```bash
+pnpm add -g @sc-biz/cli
+```
+
+或使用 npm：
+
+```bash
+npm install -g @sc-biz/cli
+```
+
+## 步骤 2：初始化项目
+
+在你的项目根目录运行：
+
+```bash
+sc-biz init
+```
+
+这个命令会：
+
+- 在项目根目录创建 `sc-biz.json` 配置文件
+- 设置组件和样式的输出路径
+
+默认配置如下：
+
+```json
+{
+  "componentsPath": "src/components",
+  "hooksPath": "src/hooks",
+  "styleType": "css-modules"
+}
+```
+
+你可以根据项目需要修改这些配置。
+
+## 步骤 3：配置路径别名
+
+为了让组件能正确导入，需要配置路径别名。
+
+### Vite 项目
+
+编辑 `vite.config.ts`：
+
+```typescript
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@hooks': path.resolve(__dirname, './src/hooks'),
+    },
+  },
+});
+```
+
+### Webpack 项目
+
+编辑 `webpack.config.js` 或 `craco.config.js`：
+
+```javascript
+module.exports = {
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@hooks': path.resolve(__dirname, 'src/hooks'),
+    },
+  },
+};
+```
+
+同时更新 `tsconfig.json`：
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"]
+    }
+  }
+}
+```
+
+## 步骤 4：安装样式依赖
+
+如果你的项目还没有安装 Less，需要安装：
+
+```bash
+pnpm add -D less
+```
+
+如果使用 Vite，还需要配置 Less 插件（通常已内置）。
+
+## 步骤 5：添加组件
+
+现在可以添加你需要的组件了！
+
+### 查看可用组件
+
+```bash
+sc-biz list
+```
+
+这会列出所有可用的组件和 Hooks。
+
+### 添加组件
+
+```bash
+# 添加自定义日历组件
+sc-biz add custom-calendar
+
+# 添加自定义卡片组件
+sc-biz add custom-card
+
+# 添加 useCounter Hook
+sc-biz add use-counter
+```
+
+组件源码会被复制到 `src/components` 目录，Hooks 会被复制到 `src/hooks` 目录。
+
+## 步骤 6：使用组件
+
+添加后，就可以在项目中使用了：
+
+```tsx
+import React from 'react';
+import CustomCalendar from '@components/custom-calendar';
+import CustomCard from '@components/custom-card';
+import { useCounter } from '@hooks/useCounter';
+
+function App() {
+  const { count, increment, decrement, reset } = useCounter(0);
+
+  return (
+    <div className="app">
+      <h1>sc-biz-components 示例</h1>
+
+      {/* 使用自定义卡片 */}
+      <CustomCard title="欢迎使用" content="这是一个源码级业务组件示例" />
+
+      {/* 使用计数器 Hook */}
+      <div>
+        <p>计数：{count}</p>
+        <button onClick={increment}>增加</button>
+        <button onClick={decrement}>减少</button>
+        <button onClick={reset}>重置</button>
+      </div>
+
+      {/* 使用自定义日历 */}
+      <CustomCalendar />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## 自定义和修改
+
+这就是源码级管理的优势！你可以直接修改添加的组件源码：
+
+1. 打开 `src/components/custom-card/index.tsx`
+2. 修改代码以满足你的需求
+3. 修改 `src/components/custom-card/index.module.less` 自定义样式
+
+不需要等待组件库更新，也不需要复杂的配置，直接改代码即可！
+
+## 常见问题
+
+### 样式不生效？
+
+确保已经安装 Less，并且构建工具配置了 CSS Modules 支持。
+
+### 组件导入报错？
+
+检查路径别名是否正确配置，确保 `tsconfig.json` 和构建工具配置一致。
+
+### 想要更新组件？
+
+由于是源码级管理，直接修改组件文件即可。如果想要获取最新版本，可以删除组件后重新添加：
+
+```bash
+# 删除组件文件夹
+rm -rf src/components/custom-card
+
+# 重新添加
+sc-biz add custom-card
+```
+
+## 下一步
+
+- 📚 [浏览所有组件](/components/custom-calendar)
+- 🎣 [查看 Hooks 工具](/hooks/use-counter)
+- 💡 [了解设计理念](/guide/introduction)

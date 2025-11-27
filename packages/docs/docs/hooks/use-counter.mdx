@@ -1,0 +1,78 @@
+# useCounter
+
+一个简单易用的计数器 Hook，提供了增加、减少和重置计数的功能。
+
+## 基础用法
+
+```tsx
+import { useCounter } from '@hooks/useCounter';
+
+export default function Demo() {
+  const { count, increment, decrement, reset } = useCounter(0);
+
+  return (
+    <div style={{ padding: '20px' }}>
+      <h3>计数器示例</h3>
+      <p style={{ fontSize: '24px', fontWeight: 'bold' }}>当前计数: {count}</p>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <button onClick={increment}>增加</button>
+        <button onClick={decrement}>减少</button>
+        <button onClick={reset}>重置</button>
+      </div>
+    </div>
+  );
+}
+```
+
+## 自定义初始值
+
+```tsx
+import { useCounter } from '@hooks/useCounter';
+
+export default function Demo() {
+  const { count, increment, decrement, reset } = useCounter(10);
+
+  return (
+    <div style={{ padding: '20px' }}>
+      <h3>从 10 开始计数</h3>
+      <p style={{ fontSize: '24px', fontWeight: 'bold' }}>当前计数: {count}</p>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <button onClick={increment}>+1</button>
+        <button onClick={decrement}>-1</button>
+        <button onClick={reset}>重置到 10</button>
+      </div>
+    </div>
+  );
+}
+```
+
+## API
+
+### 参数
+
+| 参数         | 说明       | 类型     | 默认值 |
+| ------------ | ---------- | -------- | ------ |
+| initialValue | 初始计数值 | `number` | `0`    |
+
+### 返回值
+
+| 参数      | 说明             | 类型         |
+| --------- | ---------------- | ------------ |
+| count     | 当前计数值       | `number`     |
+| increment | 增加计数（+1）   | `() => void` |
+| decrement | 减少计数（-1）   | `() => void` |
+| reset     | 重置计数到初始值 | `() => void` |
+
+## 特性
+
+- 🎯 简单易用的 API
+- 🔄 支持自定义初始值
+- ⚡️ TypeScript 支持
+- 🎨 灵活的操作方法
+
+## 使用场景
+
+- 商品数量选择器
+- 分页计数
+- 游戏分数统计
+- 任何需要计数功能的场景

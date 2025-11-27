@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "CommonJS",
+    "target": "ES2015",
+    "lib": ["ES2015", "DOM"],
+    "jsx": "react-jsx",
+    "declaration": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "moduleResolution": "node"
+  },
+  "include": ["src/**/*", "registry.ts", "components.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

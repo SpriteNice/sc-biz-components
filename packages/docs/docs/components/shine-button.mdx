@@ -1,0 +1,88 @@
+# ShineButton 流光按钮
+
+一个具有动态彩虹流光边框效果的炫酷按钮组件，适用于需要吸引用户注意力的关键操作场景。
+
+## 代码演示
+
+### 基础用法
+
+最简单的使用方式，默认样式。
+
+```tsx
+import React from 'react';
+import ShineButton from '@components/shine-button';
+
+export default function Demo() {
+  return <ShineButton>点击我</ShineButton>;
+}
+```
+
+### 带点击事件
+
+按钮支持所有标准 HTML button 属性。
+
+```tsx
+import React from 'react';
+import ShineButton from '@components/shine-button';
+
+export default function Demo() {
+  const handleClick = () => {
+    alert('按钮被点击了！');
+  };
+
+  return <ShineButton onClick={handleClick}>立即体验</ShineButton>;
+}
+```
+
+## API
+
+### ShineButton
+
+| 参数      | 说明             | 类型                                            | 默认值 |
+| --------- | ---------------- | ----------------------------------------------- | ------ |
+| children  | 按钮内容         | `React.ReactNode`                               | -      |
+| className | 自定义类名       | `string`                                        | -      |
+| style     | 自定义样式       | `React.CSSProperties`                           | -      |
+| onClick   | 点击事件回调     | `(e: React.MouseEvent) => void`                 | -      |
+
+
+### 自定义流光颜色
+
+修改 `index.module.less` 中的渐变色值：
+
+```css
+.shineButton::before {
+  background: conic-gradient(
+    from 0deg,
+    #ff6b6b,
+    // 起始色
+    #4ecdc4,
+    // 中间色
+    #45b7d1,
+    // 中间色
+    #96ceb4,
+    // 中间色
+    #ff6b6b // 结束色（与起始色相同形成循环）
+  );
+}
+```
+
+### 调整动画速度
+
+```css
+.shineButton::before {
+  animation: rotate-shine 2s linear infinite; // 2s = 更快，5s = 更慢
+}
+```
+
+### 修改边框宽度和模糊
+
+```css
+.shineButton {
+  padding: 2px; // 边框宽度
+}
+
+.shineButton::before {
+  filter: blur(8px); // 模糊程度，值越大越柔和
+}
+```

@@ -1,0 +1,53 @@
+.shineButton {
+  display: inline-block;
+  position: relative;
+  border-radius: 8px;
+  padding: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute;
+    top: -200%;
+    right: -200%;
+    bottom: -200%;
+    left: -200%;
+    background: conic-gradient(
+      from 0deg,
+      #ff0000,
+      #ff7f00,
+      #ffff00,
+      #00ff00,
+      #0000ff,
+      #4b0082,
+      #9400d3,
+      #ff0000
+    );
+    animation: rotate-shine 3s linear infinite;
+    filter: blur(5px);
+  }
+  .text {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 6px 16px;
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    color: #1d2129;
+    background: #fff;
+  }
+  &:hover .text {
+    background: #fafafa;
+  }
+}
+
+@keyframes rotate-shine {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

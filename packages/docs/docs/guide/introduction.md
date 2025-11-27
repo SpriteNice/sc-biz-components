@@ -43,6 +43,7 @@ sc-biz-components 是一个基于 Ant Design 的企业级业务组件库，采�
 ### 🛠️ 强大的 CLI
 
 提供便捷的命令行工具：
+
 - `sc-biz init` - 初始化配置
 - `sc-biz add <component>` - 添加组件
 - `sc-biz list` - 查看可用组件
@@ -69,17 +70,17 @@ sc-biz-components 是一个基于 Ant Design 的企业级业务组件库，采�
 
 ## 与其他方案对比
 
-| 特性 | sc-biz-components | 传统组件库 | shadcn/ui |
-| --- | --- | --- | --- |
-| 代码控制权 | ✅ 完全可控 | ❌ 黑盒 | ✅ 完全可控 |
-| 按需集成 | ✅ CLI 添加 | ⚠️ Tree-shaking | ✅ CLI 添加 |
-| 设计体系 | Ant Design | 各异 | Radix UI |
-| 业务封装 | ✅ 深度封装 | ⚠️ 基础组件 | ❌ 基础组件 |
-| TypeScript | ✅ 完整支持 | ✅ 完整支持 | ✅ 完整支持 |
-| 定制难度 | ⭐ 简单 | ⭐⭐⭐ 困难 | ⭐ 简单 |
+| 特性       | sc-biz-components | 传统组件库      | shadcn/ui   |
+| ---------- | ----------------- | --------------- | ----------- |
+| 代码控制权 | ✅ 完全可控       | ❌ 黑盒         | ✅ 完全可控 |
+| 按需集成   | ✅ CLI 添加       | ⚠️ Tree-shaking | ✅ CLI 添加 |
+| 设计体系   | Ant Design        | 各异            | Radix UI    |
+| 业务封装   | ✅ 深度封装       | ⚠️ 基础组件     | ❌ 基础组件 |
+| TypeScript | ✅ 完整支持       | ✅ 完整支持     | ✅ 完整支持 |
+| 定制难度   | ⭐ 简单           | ⭐⭐⭐ 困难     | ⭐ 简单     |
 
 ## 下一步
 
 - 📦 [安装 CLI 工具](/guide/installation)
 - 🚀 [快速开始](/guide/quick-start)
-- 📚 [浏览组件](/components/custom-calendar)
+- 📚 [浏览组件](/components/shine-button)

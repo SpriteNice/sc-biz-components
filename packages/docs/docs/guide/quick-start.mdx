@@ -19,13 +19,13 @@ pnpm add antd
 ## 步骤 1：安装 CLI 工具
 
 ```bash
-pnpm add -g @sc-biz/cli
+npm install -g create-sc-biz-components
 ```
 
-或使用 npm：
+或使用 pnpm：
 
 ```bash
-npm install -g @sc-biz/cli
+pnpm add -g create-sc-biz-components
 ```
 
 ## 步骤 2：初始化项目
@@ -38,16 +38,14 @@ sc-biz init
 
 这个命令会：
 
-- 在项目根目录创建 `sc-biz.json` 配置文件
-- 设置组件和样式的输出路径
+- 在项目根目录创建 `sc-biz.config.json` 配置文件
+- 设置组件的输出路径
 
 默认配置如下：
 
 ```json
 {
-  "componentsPath": "src/components",
-  "hooksPath": "src/hooks",
-  "styleType": "css-modules"
+  "componentsPath": "src/components"
 }
 ```
 
@@ -134,17 +132,17 @@ sc-biz list
 ### 添加组件
 
 ```bash
-# 添加自定义日历组件
-sc-biz add custom-calendar
-
-# 添加自定义卡片组件
-sc-biz add custom-card
+# 添加 ShineButton 组件
+sc-biz add shine-button
 
 # 添加 useCounter Hook
 sc-biz add use-counter
+
+# 一次添加多个
+sc-biz add shine-button use-counter
 ```
 
-组件源码会被复制到 `src/components` 目录，Hooks 会被复制到 `src/hooks` 目录。
+组件和 Hooks 源码会被复制到 `src/components` 目录。
 
 ## 步骤 6：使用组件
 
@@ -153,20 +151,27 @@ sc-biz add use-counter
 ```tsx
 import React from 'react';
 import { useCounter } from '@hooks/useCounter';
+import ShineButton from '@components/shine-button';
+import { Button, Typography, Flex } from 'antd';
 
 function App() {
   const { count, increment, decrement, reset } = useCounter(0);
 
   return (
     <div className="app">
-      <h1>sc-biz-components 示例</h1>
+      <Typography.Title level={3}>sc-biz-components 示例</Typography.Title>
+
+      {/* 使用 ShineButton 组件 */}
+      <ShineButton onClick={increment}>点击计数</ShineButton>
 
       {/* 使用计数器 Hook */}
-      <div>
+      <div style={{ border: '1px solid #eee', padding: '16px', marginTop: '16px' }}>
         <p>计数：{count}</p>
-        <button onClick={increment}>增加</button>
-        <button onClick={decrement}>减少</button>
-        <button onClick={reset}>重置</button>
+        <Flex gap="8px" style={{ marginTop: '8px' }}>
+          <Button onClick={increment} type="primary">增加</Button>
+          <Button onClick={decrement} type="primary">减少</Button>
+          <Button onClick={reset}>重置</Button>
+        </Flex>
       </div>
     </div>
   );
@@ -179,9 +184,9 @@ export default App;
 
 这就是源码级管理的优势！你可以直接修改添加的组件源码：
 
-1. 打开 `src/components/custom-card/index.tsx`
+1. 打开 `src/components/shine-button/index.tsx`
 2. 修改代码以满足你的需求
-3. 修改 `src/components/custom-card/index.module.less` 自定义样式
+3. 修改 `src/components/shine-button/index.module.less` 自定义样式
 
 不需要等待组件库更新，也不需要复杂的配置，直接改代码即可！
 
@@ -201,14 +206,14 @@ export default App;
 
 ```bash
 # 删除组件文件夹
-rm -rf src/components/custom-card
+rm -rf src/components/shine-button
 
-# 重新添加
-sc-biz add custom-card
+# 重新添加（会提示是否覆盖）
+sc-biz add shine-button
 ```
 
 ## 下一步
 
-- 📚 [浏览所有组件](/components/custom-calendar)
+- 📚 [浏览所有组件](/components/shine-button)
 - 🎣 [查看 Hooks 工具](/hooks/use-counter)
 - 💡 [了解设计理念](/guide/introduction)

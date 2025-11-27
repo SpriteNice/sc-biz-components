@@ -14,13 +14,13 @@
 ### 全局安装（推荐）
 
 ```bash
-pnpm add -g @sc-biz/cli
+npm install -g create-sc-biz-components
 ```
 
-或使用 npm：
+或使用 pnpm：
 
 ```bash
-npm install -g @sc-biz/cli
+pnpm add -g create-sc-biz-components
 ```
 
 ### 本地安装
@@ -28,7 +28,7 @@ npm install -g @sc-biz/cli
 如果你不想全局安装，也可以在项目中本地安装：
 
 ```bash
-pnpm add -D @sc-biz/cli
+pnpm add -D create-sc-biz-components
 ```
 
 然后通过 npx 使用：
@@ -52,5 +52,5 @@ sc-biz --version
 安装完成后，你可以：
 
 - 阅读[快速开始](/guide/quick-start)了解如何使用
-- 查看[组件列表](/components/custom-calendar)浏览可用组件
+- 查看[组件列表](/components/shine-button)浏览可用组件
 - 了解[项目介绍](/guide/introduction)深入理解设计理念

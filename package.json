@@ -5,10 +5,10 @@
   "description": "业务组件库 Monorepo",
   "license": "MIT",
   "scripts": {
-    "dev:cli": "pnpm --filter cli dev",
-    "build:cli": "pnpm --filter cli build",
-    "dev:docs": "pnpm --filter docs dev",
-    "build:docs": "pnpm --filter docs build"
+    "dev:cli": "pnpm --filter sc-biz-cli dev",
+    "build:cli": "pnpm --filter sc-biz-cli build",
+    "dev:docs": "pnpm --filter sc-biz-docs dev",
+    "build:docs": "pnpm --filter sc-biz-docs build"
   },
   "devDependencies": {
     "@types/node": "^24.7.2",

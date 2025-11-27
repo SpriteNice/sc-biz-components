@@ -15,7 +15,7 @@
     "paths": {
       "@/*": ["./cli/*"],
       "@components/*": ["../components/*"],
-      "@hooks/*": ["../components/hooks/*"],
+      "@hooks/*": ["../hooks/*"],
     }
   },
   "include": ["docs", "theme", "rspress.config.ts"],

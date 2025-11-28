@@ -82,6 +82,7 @@ export const REGISTRY: Record<string, ComponentInfo> = {
     name: 'your-component',
     title: 'YourComponent',
     description: '你的组件描述',
+    type: 'component',
   },
   // ... 其他组件
 };
@@ -244,32 +245,55 @@ npm publish
 
 ### 2. 部署文档站点
 
+#### 部署到 Vercel（已配置自动部署）✨
+
+**当前项目已配置 Vercel 自动部署，无需手动操作！**
+
+- ✅ 推送代码到 `main` 分支后自动触发构建
+- ✅ 自动部署到生产环境
+- ✅ 提供预览链接
+
+**如需在新项目中配置：**
+
+1. 导入项目到 Vercel（首次配置）
+2. 配置构建设置：
+   - **Framework Preset**: `Other`
+   - **Root Directory**: `packages/docs`
+   - **Build Command**: `pnpm run build`
+   - **Output Directory**: `doc_build`
+   - **Install Command**: `pnpm install`
+3. 连接 GitHub 仓库，Vercel 会自动：
+   - 监听 `main` 分支的推送
+   - 自动构建和部署
+   - 为 PR 生成预览链接
+
+**访问地址：**
+- 生产环境：[https://your-project.vercel.app](https://your-project.vercel.app)
+- 每次推送后，Vercel 会在 PR 中自动添加部署状态和预览链接
+
+**手动触发部署：**
+
+如需手动重新部署，可以在 Vercel 控制台点击 "Redeploy" 按钮。
+
 #### 部署到 GitHub Pages
+
+如果你想同时部署到 GitHub Pages：
 
 1. 配置 `packages/docs/rspress.config.ts`：
 
 ```typescript
 export default defineConfig({
-  // 如果部署到 https://<USERNAME>.github.io/<REPO>/
   base: '/sc-biz-components/',
   // ... 其他配置
 });
 ```
 
-2. 构建文档：
-
-```bash
-pnpm run build:docs
-```
-
-3. 部署到 GitHub Pages：
-
-方式一：使用 GitHub Actions（推荐）
+2. 使用 GitHub Actions 自动部署（推荐）
 
 创建 `.github/workflows/deploy-docs.yml`：
 
 ```yaml
-name: Deploy Docs
+name: Deploy Docs to GitHub Pages
 
 on:
   push:
@@ -303,47 +327,25 @@ jobs:
           publish_dir: ./packages/docs/doc_build
 ```
 
-方式二：手动部署
+3. 在 GitHub 仓库设置中启用 GitHub Pages（使用 `gh-pages` 分支）
+
+**手动部署方式：**
 
 ```bash
-# 构建
+# 构建文档
 pnpm run build:docs
 
 # 进入构建目录
 cd packages/docs/doc_build
 
-# 初始化 git（如果是首次）
+# 推送到 gh-pages 分支
 git init
 git add -A
 git commit -m 'deploy'
-
-# 推送到 gh-pages 分支
 git push -f git@github.com:SpriteNice/sc-biz-components.git main:gh-pages
 
 cd -
 ```
-
-#### 部署到 Vercel
-
-1. 导入项目到 Vercel
-2. 配置构建设置：
-   - **Root Directory**: `packages/docs`
-   - **Build Command**: `pnpm run build`
-   - **Output Directory**: `doc_build`
-3. 部署
-
-#### 部署到 Netlify
-
-1. 在 `packages/docs` 创建 `netlify.toml`：
-
-```toml
-[build]
-  base = "packages/docs"
-  command = "pnpm run build"
-  publish = "doc_build"
-```
-
-2. 连接 GitHub 仓库并部署
 
 ## 🔧 开发脚本说明
 
@@ -358,48 +360,6 @@ cd -
 }
 ```
 
-## 📝 使用示例
-
-### 用户端使用
-
-1. 安装 CLI：
-
-```bash
-npm install -g create-sc-biz-components
-```
-
-2. 在项目中初始化：
-
-```bash
-sc-biz init
-```
-
-3. 添加组件：
-
-```bash
-sc-biz add shine-button
-```
-
-4. 在代码中使用：
-
-```tsx
-import ShineButton from '@components/shine-button';
-
-function App() {
-  return <ShineButton>点击我</ShineButton>;
-}
-```
-
-## 🤝 贡献指南
-
-欢迎贡献代码！请遵循以下步骤：
-
-1. Fork 本仓库
-2. 创建你的特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交你的改动 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启一个 Pull Request
-
 ### 代码规范
 
 - 使用 TypeScript
@@ -413,7 +373,7 @@ MIT License - 详见 [LICENSE](LICENSE) 文件
 
 ## 🔗 相关链接
 
-- [在线文档](https://spritennice.github.io/sc-biz-components/)
+- [在线文档](https://sc-biz-components.vercel.app/index.html)
 - [GitHub 仓库](https://github.com/SpriteNice/sc-biz-components)
 - [npm 包](https://www.npmjs.com/package/create-sc-biz-components)
 
@@ -442,9 +402,3 @@ npm link
 ```
 
 然后在测试项目中使用 `sc-biz` 命令即可。
-
----
-
-<p align="center">
-  Made with ❤️ by SpriteNice
-</p>
